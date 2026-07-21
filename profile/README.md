@@ -2,7 +2,7 @@
 
 **One object. Multiple decks.**
 
-Control Decks gives humans a small, explicit interface for directing agent behavior. Each deck has its own job. Every compatible card can receive the same Working Object, add a result or annotation, and pass it to the next deck.
+Control Decks gives humans a small, explicit interface for directing agent behavior. Each deck has its own job. Every compatible card can receive the same Working Object, add a result or scoped annotation, and pass it to the next deck.
 
 > **HACP — Human-Agent Control Protocol**  
 > **Cards are the interface. Control is the protocol.**
@@ -21,6 +21,9 @@ Control Decks gives humans a small, explicit interface for directing agent behav
 </table>
 
 ## Cards compose across decks
+
+These are recipes, not dependencies between decks. Cards compose through HACP
+kinds, predicates, traits, and annotations rather than foreign card IDs.
 
 ```text
 THINK PROPOSE → REALITY CHECK ASSUMPTIONS
@@ -51,22 +54,41 @@ Binding + Working Object + Active Controls
 
 Cards resolve in written order. The full stream is prevalidated before its first effect. No hidden reordering, hidden duration card, or implicit permission grant is allowed.
 
+## Install HACP once
+
+The HACP plugin loads the shared Draft 0.4 payload when a session starts. Cards
+remain explicit human commands; the agent cannot infer, invoke, or replay them.
+
+```bash
+# Codex
+codex plugin marketplace add control-decks/human-agent-control-protocol
+codex plugin add hacp@hacp
+
+# Claude Code
+claude plugin marketplace add control-decks/human-agent-control-protocol --scope user
+claude plugin install hacp@hacp --scope user
+```
+
+Then install only the decks you want.
+
 ## Decks
 
 | Repository | Current release | Purpose |
 |---|---:|---|
-| [Think It Through](https://github.com/control-decks/think-it-through) | `0.12.0` | Thinking operations, bindings, and presentation |
-| [Work This Way](https://github.com/control-decks/work-this-way) | `0.2.0` | Session controls and implementation |
-| [Reality Check](https://github.com/control-decks/reality-check) | `0.2.0` | Read-only verification annotations |
-| [HACP](https://github.com/control-decks/human-agent-control-protocol) | Draft `0.3` · plugin `0.2.0` | Shared protocol and optional authoring plugin |
+| [Think It Through](https://github.com/control-decks/think-it-through) | `0.13.0` | Thinking operations, bindings, and presentation |
+| [Work This Way](https://github.com/control-decks/work-this-way) | `0.3.0` | Session controls and implementation |
+| [Reality Check](https://github.com/control-decks/reality-check) | `0.3.0` | Read-only verification annotations |
+| [HACP](https://github.com/control-decks/human-agent-control-protocol) | Draft `0.4` · plugin `0.3.0` | Required session adapter and authoring plugin |
 
-Each deck is an autonomous Codex and Claude Code plugin. HACP conformance is behavioral; the optional HACP skill helps explain, create, and audit decks but is never required to use one.
+Each deck is an independent Codex and Claude Code plugin, but full HACP
+conformance requires a compatible session adapter. The canonical HACP plugin
+loads that payload once and also explains, creates, and audits cards.
 
 ## Start here
 
 - Want to think something through? Install [Think It Through](https://github.com/control-decks/think-it-through).
 - Want to change how the agent works in this session? Install [Work This Way](https://github.com/control-decks/work-this-way).
 - Want to verify a result before relying on it? Install [Reality Check](https://github.com/control-decks/reality-check).
-- Want to build a compatible deck? Read [HACP Draft 0.3](https://github.com/control-decks/human-agent-control-protocol/blob/main/SPEC.md) or play `HACP AUTHOR CARD` and `HACP AUTHOR DECK`.
+- Want to build a compatible deck? Read [HACP Draft 0.4](https://github.com/control-decks/human-agent-control-protocol/blob/main/SPEC.md) or play `HACP AUTHOR CARD` and `HACP AUTHOR DECK`.
 
 Created by [thevzion](https://github.com/thevzion).
