@@ -58,7 +58,7 @@ Cards resolve in written order. The full stream is prevalidated before its first
 | [Think It Through](https://github.com/control-decks/think-it-through) | `0.11.0` | Thinking operations, bindings, and presentation |
 | [Work This Way](https://github.com/control-decks/work-this-way) | `0.1.0` | Session controls and implementation |
 | [Reality Check](https://github.com/control-decks/reality-check) | `0.1.0` | Read-only verification annotations |
-| [HACP](https://github.com/control-decks/human-agent-card-protocol) | Draft `0.3` | The shared semantic protocol |
+| [HACP](https://github.com/control-decks/human-agent-control-protocol) | Draft `0.3` | The shared semantic protocol and optional authoring plugin |
 
 Each deck is an autonomous Codex and Claude Code plugin. HACP conformance is behavioral; the optional HACP skill helps explain, create, and audit decks but is never required to use one.
 
@@ -67,6 +67,6 @@ Each deck is an autonomous Codex and Claude Code plugin. HACP conformance is beh
 - Want to think something through? Install [Think It Through](https://github.com/control-decks/think-it-through).
 - Want to change how the agent works in this session? Install [Work This Way](https://github.com/control-decks/work-this-way).
 - Want to verify a result before relying on it? Install [Reality Check](https://github.com/control-decks/reality-check).
-- Want to build a compatible deck? Read [HACP Draft 0.3](https://github.com/control-decks/human-agent-card-protocol/blob/main/SPEC.md).
+- Want to build a compatible deck? Read [HACP Draft 0.3](https://github.com/control-decks/human-agent-control-protocol/blob/main/SPEC.md) or play `HACP AUTHOR CARD` and `HACP AUTHOR DECK`.
 
 Created by [thevzion](https://github.com/thevzion).
