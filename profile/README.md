@@ -16,7 +16,7 @@ Control Decks gives humans a small, explicit interface for directing agent behav
   <tr>
     <td><strong>Think It Through</strong><br>Explore, decide, plan, and explain.</td>
     <td><strong>Work This Way</strong><br>Set visible session controls and act.</td>
-    <td><strong>Reality Check</strong><br>Verify targets, sources, and assumptions.</td>
+    <td><strong>Reality Check</strong><br>Verify sources, assumptions, and concrete targets.</td>
   </tr>
 </table>
 
@@ -26,20 +26,20 @@ These are recipes, not dependencies between decks. Cards compose through HACP
 kinds, predicates, traits, and annotations rather than foreign card IDs.
 
 ```text
-THINK PROPOSE → REALITY CHECK ASSUMPTIONS
+THINK PROPOSE → REALITY CHECK ASSUMPTIONS → REALITY CHECK SOURCES
 ```
 
-A proposal becomes the Working Object. Reality Check annotates its assumptions without replacing the proposal.
+A proposal becomes the Working Object. Reality Check annotates its assumptions and supporting evidence without replacing the proposal.
 
 ```text
 WORK ASK FIRST
 → THINK TO PLAN
-→ REALITY CHECK TARGETS
+→ REALITY CHECK SOURCES
 → WORK IMPLEMENT
 → THINK EXPLAIN
 ```
 
-One object moves through planning, verification, guarded execution, and presentation. The user sees one useful final result, not five disconnected reports.
+One object moves through planning, evidence checking, guarded execution, and presentation. The user sees one useful final result, not five disconnected reports.
 
 ## The shared grammar
 
@@ -77,7 +77,7 @@ Then install only the decks you want.
 |---|---:|---|
 | [Think It Through](https://github.com/control-decks/think-it-through) | `0.13.0` | Thinking operations, bindings, and presentation |
 | [Work This Way](https://github.com/control-decks/work-this-way) | `0.3.0` | Session controls and implementation |
-| [Reality Check](https://github.com/control-decks/reality-check) | `0.3.0` | Read-only verification annotations |
+| [Reality Check](https://github.com/control-decks/reality-check) | `0.3.1` | Read-only verification annotations |
 | [HACP](https://github.com/control-decks/human-agent-control-protocol) | Draft `0.4` · plugin `0.3.0` | Required session adapter and authoring plugin |
 
 Each deck is an independent Codex and Claude Code plugin, but full HACP
